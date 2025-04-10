@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
   BrainCogIcon,
   EyeIcon,
@@ -6,6 +7,8 @@ import {
   ServerCogIcon,
   ZapIcon,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const features = [
   {
@@ -73,10 +76,20 @@ export default function Home() {
               enhancing productivity 10x fold effortlessly.
             </p>
           </div>
+          <Button asChild className="mt-10">
+            <Link href="/dashboard">Get Started</Link>
+          </Button>
         </div>
 
         <div className="relative overflow-hidden pt-16">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <Image
+              alt="App screenshot"
+              src="https://i.imgur.com/VciRSTI.jpeg"
+              width={2432}
+              height={1442}
+              className="mb-[-0%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
+            />
             <div aria-hidden="true" className="relative">
               <div className="absolute bottom-0 -inset-x-32 bg-gradient-to-t from-slate-800/95 pt-[5%]" />
             </div>
