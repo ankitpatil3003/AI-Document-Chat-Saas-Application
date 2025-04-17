@@ -11,9 +11,11 @@ import {
 } from "lucide-react";
 import useUpload, { StatusText } from "@/hooks/useUpload";
 import { useRouter } from "next/navigation";
+import useSubscription from "@/hooks/useSubscription";
 
 function FileUploader() {
   const { progress, status, fileId, handleUpload } = useUpload();
+  const { isOverFileLimit, filesLoading } = useSubscription();
   const router = useRouter();
 
   useEffect(() => {
@@ -22,18 +24,21 @@ function FileUploader() {
     }
   }, [fileId, router]);
 
-  const onDrop = useCallback(async (acceptedFiles: File[]) => {
-    // Do something with the files
+  const onDrop = useCallback(
+    async (acceptedFiles: File[]) => {
+      // Do something with the files
 
-    const file = acceptedFiles[0];
-    if (file) {
-      await handleUpload(file);
-    } else {
-      //do nothing...
-      //toast...
-    }
-  },
-    [handleUpload]
+      const file = acceptedFiles[0];
+      if (file) {
+        if (!isOverFileLimit && !filesLoading) {
+          await handleUpload(file);
+        }
+      } else {
+        // do nothing...
+        // toast...
+      }
+    },
+    [handleUpload, isOverFileLimit, filesLoading]
   );
 
   const statusIcons: {

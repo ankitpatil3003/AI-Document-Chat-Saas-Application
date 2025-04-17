@@ -6,7 +6,7 @@ import { auth } from "@clerk/nextjs/server";
 async function ChatToFilePage(props: { params: Promise<{ id: string }> }) {
   const { params } = props;
   const { id } = await params;
-
+  auth.protect();
   const { userId } = await auth();
 
   const ref = await adminDb

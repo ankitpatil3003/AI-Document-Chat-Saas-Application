@@ -1,13 +1,14 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { FilePlus2 } from "lucide-react";
+import UpgradeButton from "./UpgradeButton";
 
 function Header() {
   return (
     <div className="flex justify-between bg-slate-800 shadow-sm p-5 border-b">
       <Link href="/dashboard" className="text-2xl">
-        <span className="text-white">Chat to </span><span className="text-cyan-400">PDF</span>
+        <span className="text-white">Chat with </span><span className="text-cyan-400">Document</span>
       </Link>
 
       <SignedIn>
@@ -25,12 +26,10 @@ function Header() {
               <FilePlus2 className="text-cyan-400" />
             </Link>
           </Button>
+          <UpgradeButton />
           <UserButton />
         </div>
       </SignedIn>
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
     </div>
   );
 }
