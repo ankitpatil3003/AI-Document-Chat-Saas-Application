@@ -111,7 +111,7 @@ function PdfView({ url }: { url: string }) {
           onLoadSuccess={onDocumentLoadSuccess}
           className="m-4 overflow-scroll"
         >
-          <Page className="shadow-lg" scale={scale} pageNumber={pageNumber} />
+          <Page className="shadow-lg" scale={scale} pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false}/>
         </Document>
       )}
     </div>

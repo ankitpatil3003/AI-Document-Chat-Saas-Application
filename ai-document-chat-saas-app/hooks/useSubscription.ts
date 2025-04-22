@@ -23,6 +23,11 @@ function useSubscription() {
     }
   );
 
+  useEffect(() => {
+    if (!user) return;
+    console.log("🧠 Frontend subscribing to user ID:", user.id); // 🧪 ADD THIS
+  }, [user]);  
+
   //   Listen to the users files collection
   const [filesSnapshot, filesLoading] = useCollection(
     user && collection(db, "users", user?.id, "files")

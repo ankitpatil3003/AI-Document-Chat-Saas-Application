@@ -1,3 +1,5 @@
+// app/api/webhooks/stripe/route.ts
+
 import { adminDb } from "@/firebaseAdmin";
 import stripe from "@/lib/stripe";
 import { headers } from "next/headers";
@@ -61,6 +63,27 @@ export async function POST(req: NextRequest) {
         hasActiveMembership: true,
       });
 
+      break;
+    }
+    case "customer.subscription.updated": {
+      const subscription = event.data.object as Stripe.Subscription;
+      const customerId = subscription.customer as string;
+
+      const userDetails = await getUserDetails(customerId);
+      if (!userDetails?.id) {
+        return new NextResponse("User not found", { status: 404 });
+      }
+
+      // If they've scheduled cancellation at period end or subscription is not active, set to false
+      const remainsActive =
+        subscription.status === "active" && !subscription.cancel_at_period_end;
+
+      await adminDb
+        .collection("users")
+        .doc(userDetails.id)
+        .update({
+          hasActiveMembership: remainsActive,
+        });
       break;
     }
     case "customer.subscription.deleted":
