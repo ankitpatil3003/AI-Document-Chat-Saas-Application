@@ -28,6 +28,7 @@ Credits: [Sonny Sangha Youtuber](https://www.youtube.com/@SonnySangha)
 - [Deployment](#deployment)  
 - [Usage](#usage)  
 - [Contributing](#contributing)  
+- [License](#license)   
 - [Contact](#contact)  
 
 ---
@@ -193,6 +194,9 @@ npm run start
 4. Push to the branch (git push origin feature/foo)
 5. Open a Pull Request
 Please follow the existing code style and add relevant tests.
+
+## 📄 License
+This project is licensed under the MIT License. See LICENSE for details.
 
 ## ✉️ Contact
 - Made by Ankit Patil
