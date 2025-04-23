@@ -66,7 +66,7 @@ Credits: [Sonny Sangha Youtuber](https://www.youtube.com/@SonnySangha)
 | **AI & Embeddings**  | OpenAI API, Custom embedding functions   |
 | **State & Data**     | React Firebase Hooks, Clerk Hooks        |
 | **Icons & Fonts**    | lucide-react, Google Fonts (Geist)       |
-| **Deployment**       | Vercel (Next.js) / AWS EC2 (optional)    |
+| **Deployment**       | Render (Next.js)                         |
 
 ---
 
@@ -85,7 +85,7 @@ Credits: [Sonny Sangha Youtuber](https://www.youtube.com/@SonnySangha)
 
 ```bash
 # Clone
-git clone https://github.com/your-username/ai-document-chat-saas-app.git
+git clone https://github.com/ankitpatil3003/ai-document-chat-saas-app.git
 cd ai-document-chat-saas-app
 
 # Install dependencies
