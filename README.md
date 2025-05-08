@@ -175,7 +175,7 @@ npm run start
 ```
 ## ☁️ Deployment
 ☁️ Deployment
-1. Vercel
+1. Render
 - Connect your GitHub repo
 - Set environment variables in the Render dashboard
 - Deploy
